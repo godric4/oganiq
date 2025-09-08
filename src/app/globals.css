@@ -1,26 +1,131 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
+/* ===== Root Variables ===== */
 :root {
+  /* Base Colors */
   --background: #ffffff;
   --foreground: #171717;
+
+  /* School Identity Colors */
+  --primary: #800020;
+  --accent: #ffd700;
+
+  /* Neutral Colors */
+  --neutral-light: #f5f5f5;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+
+  /* Fonts */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Card Colors */
+  --card-bg: var(--neutral-light);
+  --card-text: var(--text-primary);
+  --card-accent: var(--primary);
+
+  /* Chart Colors */
+  --chart-primary: var(--primary);
+  --chart-secondary: var(--accent);
+  --chart-neutral: var(--text-secondary);
+  --chart-light: #b03060;
+  --chart-light: #ffecb3;
 }
 
+/* ===== Tailwind v4 Inline Theme Mapping ===== */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+
+  --color-card-bg: var(--card-bg);
+  --color-card-text: var(--card-text);
+  --color-card-accent: var(--card-accent);
+
+  --color-chart-primary: var(--chart-primary);
+  --color-chart-secondary: var(--chart-secondary);
+  --color-chart-neutral: var(--chart-neutral);
+  --color-chart-light: var(--chart-light);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
+/* ===== Dark Mode ===== */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+
+    /* Neutral/Text Colors */
+    --neutral-light: #1a1a1a;
+    --text-primary: #ededed;
+    --text-secondary: #bbbbbb;
+
+    /* School Colors */
+    --primary: #01427a;
+    --accent: #01b3ef;
+    --secondary: #e14177;
+
+    /* Card Colors */
+    --card-bg: var(--neutral-light);
+    --card-text: var(--text-primary);
+    --card-accent: var(--primary);
+
+    /* Chart Colors */
+    --chart-primary: var(--primary);
+    --chart-secondary: var(--accent);
+    --chart-neutral: var(--text-secondary);
+
+    --chart-light: #ffe066;
+  }
+
+  @theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-primary: var(--primary);
+    --color-accent: var(--accent);
+
+    --color-card-bg: var(--card-bg);
+    --color-card-text: var(--card-text);
+    --color-card-accent: var(--card-accent);
+
+    --color-chart-primary: var(--chart-primary);
+    --color-chart-secondary: var(--chart-secondary);
+    --color-chart-neutral: var(--chart-neutral);
+    --color-chart-light: var(--chart-light);
+    --color-secondary: var(--secondary)
+
+    --font-sans: var(--font-sans);
+    --font-mono: var(--font-mono);
   }
 }
 
+/* ===== Global Styles ===== */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Example Buttons & Cards using Tailwind inline variables */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--accent);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--accent);
+}
+
+.card {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  border-left: 4px solid var(--card-accent);
+  padding: 1rem;
+  border-radius: 0.5rem;
 }
