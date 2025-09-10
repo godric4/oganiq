@@ -26,6 +26,6 @@ export const sidebarLinks = [
   { label: 'Results', route: '/results', icon: FileText },
   { label: 'Attendance', route: '/attendance', icon: Calendar },
   { label: 'Events', route: '/events', icon: Calendar },
-  { label: 'Messages', route: '/messages', icon: MessageCircle },
-  { label: 'Announcements', route: '/announcements', icon: Bell },
+  // { label: 'Messages', route: '/messages', icon: MessageCircle },
+  // { label: 'Announcements', route: '/announcements', icon: Bell },
 ]
