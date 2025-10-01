@@ -1,0 +1,33 @@
+// --- Datasource: tells Prisma where your DB is ---
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL") // must exist in your .env
+}
+
+// --- Generator: Prisma client ---
+generator client {
+  provider = "prisma-client-js"
+}
+
+// --- Models ---
+model Profile {
+  id        String   @id @default(uuid())
+  fullName  String?
+  email     String?  @unique
+  role      String   @default("Student")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  student   Student?
+}
+
+model Student {
+  id           String   @id @default(uuid())
+  admissionNo  String   @unique
+  passwordHash String
+  fullName     String?
+  class        String?
+  createdAt    DateTime @default(now())
+
+  profile      Profile @relation(fields: [id], references: [id])
+}
+

@@ -2,8 +2,9 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { sidebarLinks } from '../lib/data'
+
 import { Cog, LogOut } from 'lucide-react'
+import { sidebarLinks } from '@/lib/data'
 
 const SidebarLinks = () => {
   const pathname = usePathname()
@@ -15,7 +16,7 @@ const SidebarLinks = () => {
 
   const getLinkClasses = (isActive: boolean) =>
     `flex gap-2 items-center rounded px-2 py-2 transition-colors duration-200 
-     ${isActive ? 'bg-accent text-white' : 'text-white'} 
+     ${isActive ? 'bg-card text-primary' : 'text-card'} 
      hover:bg-white hover:text-primary`
 
   const isLinkActive = (route: string) =>
@@ -24,7 +25,7 @@ const SidebarLinks = () => {
   return (
     <div className='font-medium '>
       {/* Primary Links */}
-      <ul className='p-2 md:p-4 border-b border-text-secondary'>
+      <ul className='p-2 md:p-4 border-b border-text-card'>
         {sidebarLinks.map(({ label, route, icon: Icon }) => {
           const isActive = isLinkActive(route)
           return (

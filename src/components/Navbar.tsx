@@ -32,14 +32,14 @@ const Navbar = () => {
   }
 
   return (
-    <div className='relative p-4 flex items-center justify-between gap-4 border-b '>
+    <div className='relative p-4 flex items-center justify-between gap-4 border-b mb-3 '>
       {/* Desktop Search Bar */}
-      <div className='relative hidden md:flex w-full max-w-[50%] lg:max-w-[500px] items-center'>
-        <SearchIcon className='absolute left-3 top-1/2 -translate-y-1/2 text-foreground/80 w-5 h-5' />
+      <div className='flex w-full max-w-[50%] lg:max-w-[500] items-center rounded-lg border border-primary/30 bg-card px-4 py-2 shadow-sm focus-within:ring-1 focus-within:ring-primary'>
+        <SearchIcon className='w-5 h-5 text-primary' />
         <input
           type='search'
           placeholder='Search...'
-          className='w-full h-10 pl-10 pr-3 rounded-lg border border-foreground focus:ring-1 focus:ring-foreground/60 outline-none bg-accent/10 '
+          className='ml-3 w-full  outline-none placeholder:text-primary/60'
         />
       </div>
 
@@ -50,7 +50,7 @@ const Navbar = () => {
           onClick={() => setShowMobileSearch(true)}
           className='p-2 relative z-10'
         >
-          <SearchIcon className='w-6 h-6 text-foreground' />
+          <SearchIcon className='w-6 h-6 text-primary' />
         </button>
 
         <AnimatePresence>
@@ -60,14 +60,14 @@ const Navbar = () => {
               animate={{ width: '200px', opacity: 1 }}
               exit={{ width: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className='absolute top-0 left-0 z-20 bg-white p-1 rounded-lg shadow-md flex items-center text-primary origin-left'
+              className='absolute top-0 left-0 z-20 bg-card p-1 rounded-lg shadow-md flex items-center text-primary origin-left'
             >
-              <SearchIcon className='ml-2 w-5 h-5 text-primary/80' />
+              <SearchIcon className='ml-2 w-5 h-5 text-primary' />
               <input
                 autoFocus
                 type='search'
                 placeholder='Search...'
-                className='ml-2 w-full h-8 pl-1 pr-2 border border-primary rounded outline-none bg-accent/10'
+                className='ml-2 w-full h-8 pl-1 pr-2 border border-primary rounded outline-none bg-primary'
                 onKeyDown={handleSearchKeyDown}
               />
               <button
@@ -90,7 +90,7 @@ const Navbar = () => {
           className='relative'
           onClick={() => console.log('Open notifications')}
         >
-          <Bell className='w-6 h-6 text-foreground' />
+          <Bell className='w-6 h-6 text-primary' />
           {notifications > 0 && (
             <span className='absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center'>
               {notifications}
@@ -104,7 +104,7 @@ const Navbar = () => {
           className='relative'
           onClick={() => console.log('Open announcements')}
         >
-          <Megaphone className='w-6 h-6 text-foreground' />
+          <Megaphone className='w-6 h-6 text-primary' />
           {announcements > 0 && (
             <span className='absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center'>
               {announcements}
@@ -135,7 +135,7 @@ const Navbar = () => {
 
           <div className='hidden sm:block text-sm'>
             <p className='font-medium'>{userName}</p>
-            <p className='text-xs text-foreground/60'>{userRole}</p>
+            <p className='text-xs text-primary/60'>{userRole}</p>
           </div>
         </button>
       </div>
