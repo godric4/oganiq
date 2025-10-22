@@ -1,17 +1,20 @@
-// import FormModal from '@/components/FormModal'
+'use client'
+import { useRouter } from 'next/navigation'
 import Pagination from '@/components/Pagination'
 import Table from '@/components/Table'
 import TableSearch from '@/components/TableSearch'
+import Image from 'next/image'
+import Link from 'next/link'
+// import FormModal from '@/components/FormModal'
 import { role, teachersData } from '@/lib/data'
 import {
+  EditIcon,
   FilterIcon,
   PlusIcon,
   ScanEye,
   SortAscIcon,
   TrashIcon,
 } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
 
 type Teacher = {
   id: number
@@ -41,11 +44,11 @@ const columns = [
     accessor: 'subjects',
     className: 'hidden md:table-cell',
   },
-  {
-    header: 'Classes',
-    accessor: 'classes',
-    className: 'hidden md:table-cell',
-  },
+  // {
+  //   header: 'Classes',
+  //   accessor: 'classes',
+  //   className: 'hidden md:table-cell',
+  // },
   {
     header: 'Phone',
     accessor: 'phone',
@@ -68,10 +71,12 @@ const columns = [
 ]
 
 const TeacherListPage = () => {
+  const router = useRouter()
   const renderRow = (item: Teacher) => (
     <tr
+      onClick={() => router.push(`/list/teachers/${item.id}`)}
       key={item.id}
-      className='border-b border-primary odd:bg-card  text-sm hover:bg-primary hover:text-white'
+      className='border-b border-primary odd:bg-card  text-sm hover:bg-primary cursor-pointer hover:text-white'
     >
       <td className='flex items-center gap-4 p-4'>
         <Image
@@ -89,21 +94,27 @@ const TeacherListPage = () => {
 
       <td className='hidden md:table-cell'>{item.teacherId}</td>
       <td className='hidden md:table-cell'>{item.subjects.join(',')}</td>
-      <td className='hidden md:table-cell'>{item.classes.join(',')}</td>
+      {/* <td className='hidden md:table-cell'>{item.classes.join(',')}</td> */}
       <td className='hidden md:table-cell'>{item.phone}</td>
       <td className='hidden md:table-cell'>{item.status}</td>
       {/* <td className='hidden md:table-cell'>{item.address}</td> */}
-      <td>
+      <td onClick={(e) => e.stopPropagation()}>
         <div className='flex items-center gap-2'>
           <Link href={`/list/teachers/${item.id}`}>
-            <button className='w-7 h-7 flex items-center justify-center rounded-full bg-yellow-200 text-black'>
+            <button className='w-7 h-7 flex items-center justify-center rounded-full bg-yellow-200 text-black cursor-pointer hover:bg-white hover:text-red-800 '>
               <ScanEye className='p-1 ' />
             </button>
           </Link>
           {role === 'admin' && (
-            <button className='w-7 h-7 flex items-center justify-center rounded-full  bg-red-800 text-white'>
-              <TrashIcon className='p-1' />
-            </button>
+            <div className='flex flex-row gap-2'>
+              <button className='w-7 h-7 flex items-center justify-center rounded-full  bg-blue-500 text-white cursor-pointer hover:bg-white hover:text-black'>
+                <EditIcon className='p-1' />
+              </button>
+              {/*  */}
+              <button className='w-7 h-7 flex items-center justify-center rounded-full  bg-red-800 text-white cursor-pointer hover:bg-white hover:text-red-800'>
+                <TrashIcon className='p-1' />
+              </button>
+            </div>
             // <FormModal table='teacher' type='delete' id={item.id} />
           )}
         </div>
@@ -116,7 +127,11 @@ const TeacherListPage = () => {
       {/* TOP */}
       <div className='flex items-center justify-between'>
         <h1 className='hidden md:block text-lg  font-semibold'>
-          All Teaching Staff
+          Teacher Management
+          <span className='text-sm font-light text-mute'>
+            <br />
+            Teaching staff and faculty information
+          </span>
         </h1>
         <div className='flex flex-col md:flex-row items-center gap-4 w-full md:w-auto'>
           <TableSearch />
@@ -129,9 +144,11 @@ const TeacherListPage = () => {
             </button>
 
             {role === 'admin' && (
-              <button className='w-8 h-8 flex items-center justify-center rounded-full bg-card'>
-                <PlusIcon className='p-1' />
-              </button>
+              <div className=''>
+                <button className='w-8 h-8 flex items-center justify-center rounded-full bg-card'>
+                  <PlusIcon className='p-1' />
+                </button>
+              </div>
               // <FormModal table="teacher" type="create"/>
             )}
           </div>

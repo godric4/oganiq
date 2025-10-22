@@ -170,6 +170,8 @@ export const studentsData = [
   {
     id: 1,
     studentId: '1234567890',
+    status: 'active',
+    dob: '2015-09-09',
     name: 'John Doe',
     email: 'john@doe.com',
     photo:
@@ -182,6 +184,8 @@ export const studentsData = [
   {
     id: 2,
     studentId: '1234567890',
+    status: 'active',
+    dob: '2015-09-09',
     name: 'Jane Doe',
     email: 'jane@doe.com',
     photo:
@@ -194,6 +198,8 @@ export const studentsData = [
   {
     id: 3,
     studentId: '1234567890',
+    status: 'active',
+    dob: '2015-09-09',
     name: 'Mike Geller',
     email: 'mike@geller.com',
     photo:
@@ -206,6 +212,8 @@ export const studentsData = [
   {
     id: 4,
     studentId: '1234567890',
+    status: 'active',
+    dob: '2015-09-09',
     name: 'Jay French',
     email: 'jay@gmail.com',
     photo:
@@ -218,6 +226,8 @@ export const studentsData = [
   {
     id: 5,
     studentId: '1234567890',
+    status: 'active',
+    dob: '2015-09-09',
     name: 'Jane Smith',
     email: 'jane@gmail.com',
     photo:
@@ -230,6 +240,8 @@ export const studentsData = [
   {
     id: 6,
     studentId: '1234567890',
+    status: 'active',
+    dob: '2015-09-09',
     name: 'Anna Santiago',
     email: 'anna@gmail.com',
     photo:
@@ -242,6 +254,8 @@ export const studentsData = [
   {
     id: 7,
     studentId: '1234567890',
+    status: 'active',
+    dob: '2015-09-09',
     name: 'Allen Black',
     email: 'allen@black.com',
     photo:
@@ -254,6 +268,8 @@ export const studentsData = [
   {
     id: 8,
     studentId: '1234567890',
+    status: 'active',
+    dob: '2015-09-09',
     name: 'Ophelia Castro',
     email: 'ophelia@castro.com',
     photo:
@@ -266,6 +282,8 @@ export const studentsData = [
   {
     id: 9,
     studentId: '1234567890',
+    status: 'active',
+    dob: '2015-09-09',
     name: 'Derek Briggs',
     email: 'derek@briggs.com',
     photo:
@@ -278,6 +296,8 @@ export const studentsData = [
   {
     id: 10,
     studentId: '1234567890',
+    status: 'active',
+    dob: '2015-09-09',
     name: 'John Glover',
     email: 'john@glover.com',
     photo:
@@ -434,7 +454,7 @@ export const classesData = [
     supervisor: 'Joseph Padilla',
   },
   {
-    id: 1,
+    id: 11,
     name: 'JSS1B',
     capacity: 20,
     grade: 1,
