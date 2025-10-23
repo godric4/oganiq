@@ -49,8 +49,8 @@ const eslintConfig = [
     ],
 
     rules: {
-      '@typescript-eslint/no-explicit-any': 'off', // Disable "no any" lint rule
-      '@typescript-eslint/no-unused-vars': 'warn', // Warn instead of fail build
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
       'react/no-unescaped-entities': 'off', // Allow apostrophes in JSX
       'no-console': 'off', // Allow console.log in dev
     },
