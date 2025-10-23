@@ -5,7 +5,7 @@ import Table from '@/components/Table'
 import TableSearch from '@/components/TableSearch'
 import Image from 'next/image'
 import Link from 'next/link'
-// import FormModal from '@/components/FormModal'
+import FormModal from '@/components/FormModal'
 import { role, teachersData } from '@/lib/data'
 import {
   EditIcon,
@@ -100,22 +100,12 @@ const TeacherListPage = () => {
       {/* <td className='hidden md:table-cell'>{item.address}</td> */}
       <td onClick={(e) => e.stopPropagation()}>
         <div className='flex items-center gap-2'>
-          <Link href={`/list/teachers/${item.id}`}>
-            <button className='w-7 h-7 flex items-center justify-center rounded-full bg-yellow-200 text-black cursor-pointer hover:bg-white hover:text-red-800 '>
-              <ScanEye className='p-1 ' />
-            </button>
-          </Link>
           {role === 'admin' && (
             <div className='flex flex-row gap-2'>
-              <button className='w-7 h-7 flex items-center justify-center rounded-full  bg-blue-500 text-white cursor-pointer hover:bg-white hover:text-black'>
-                <EditIcon className='p-1' />
-              </button>
-              {/*  */}
-              <button className='w-7 h-7 flex items-center justify-center rounded-full  bg-red-800 text-white cursor-pointer hover:bg-white hover:text-red-800'>
-                <TrashIcon className='p-1' />
-              </button>
+              <FormModal table='teacher' type='update' data={item} />
+
+              <FormModal table='teacher' type='delete' id={item.id} />
             </div>
-            // <FormModal table='teacher' type='delete' id={item.id} />
           )}
         </div>
       </td>
@@ -145,11 +135,8 @@ const TeacherListPage = () => {
 
             {role === 'admin' && (
               <div className=''>
-                <button className='w-8 h-8 flex items-center justify-center rounded-full bg-card'>
-                  <PlusIcon className='p-1' />
-                </button>
+                <FormModal table='teacher' type='create' />
               </div>
-              // <FormModal table="teacher" type="create"/>
             )}
           </div>
         </div>

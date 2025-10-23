@@ -29,7 +29,7 @@ const SingleTeacherPage = () => {
             <div className='w-2/3 flex flex-col justify-between gap-4'>
               <div className='flex items-center gap-4'>
                 <h1 className='text-xl font-semibold'>Leonard Snyder</h1>
-                {/* {role === 'admin' && (
+                {role === 'admin' && (
                   <FormModal
                     table='teacher'
                     type='update'
@@ -45,10 +45,10 @@ const SingleTeacherPage = () => {
                       bloodType: 'A+',
                       dateOfBirth: '2000-01-01',
                       sex: 'male',
-                      img: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1200',
+                      img: '/admin.jpg',
                     }}
                   />
-                )} */}
+                )}
               </div>
               <p className='text-sm text-gray-500'>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
