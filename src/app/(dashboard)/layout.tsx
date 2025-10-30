@@ -18,7 +18,7 @@ export default function DashboardLayout({
             className='flex items-center justify-center lg:justify-start gap-1 p-4 text-card'
           >
             <School2Icon />
-            <span className='hidden lg:block font-bold'>Oganiq Tutors</span>
+            <span className='hidden lg:block font-bold'>Mivara </span>
           </Link>
         </div>
         {/* Sidebar links */}

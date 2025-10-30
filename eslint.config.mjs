@@ -1,28 +1,3 @@
-// import { dirname } from "path";
-// import { fileURLToPath } from "url";
-// import { FlatCompat } from "@eslint/eslintrc";
-
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(__filename);
-
-// const compat = new FlatCompat({
-//   baseDirectory: __dirname,
-// });
-
-// const eslintConfig = [
-//   ...compat.extends("next/core-web-vitals", "next/typescript"),
-//   {
-//     ignores: [
-//       "node_modules/**",
-//       ".next/**",
-//       "out/**",
-//       "build/**",
-//       "next-env.d.ts",
-//     ],
-//   },
-// ];
-
-// export default eslintConfig;
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { FlatCompat } from '@eslint/eslintrc'
@@ -35,10 +10,7 @@ const compat = new FlatCompat({
 })
 
 const eslintConfig = [
-  // Include Next.js and TypeScript base configs
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
-
-  // ✅ Custom rules and ignores
   {
     ignores: [
       'node_modules/**',
@@ -47,13 +19,6 @@ const eslintConfig = [
       'build/**',
       'next-env.d.ts',
     ],
-
-    rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-unused-vars': 'off',
-      'react/no-unescaped-entities': 'off', // Allow apostrophes in JSX
-      'no-console': 'off', // Allow console.log in dev
-    },
   },
 ]
 
